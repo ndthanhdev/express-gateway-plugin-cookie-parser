@@ -1,14 +1,12 @@
-name: Delivery experiment
+name: Publish
 
 on:
-  push:
-    branches:
-      - master
+  release:
+    types: [published]
 
 jobs:
-  delivery-experimental:
-    name: Delivery experimental
-    needs: ci
+  release:
+    name: Release
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -18,10 +16,15 @@ jobs:
         with:
           check-latest: true
       - run: yarn install
+      - run: yarn build
       - shell: pwsh
         env:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: yarn config set npmAuthToken "$env:NPM_TOKEN"
-      - run: >
-          yarn version -i 0.0.0-exp-${{ github.sha }}
-      - run: yarn npm publish --tag experimental
+      - run: yarn version -i ${{ github.event.release.tag_name }}
+      # Release
+      - run: yarn npm publish --tag alpha
+        if: ${{ github.event.release.prerelease }}
+      - run: yarn npm publish
+        if: ${{ !github.event.release.prerelease }}
+      # End Release
