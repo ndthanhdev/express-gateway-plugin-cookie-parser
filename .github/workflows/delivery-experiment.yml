@@ -3,7 +3,7 @@ name: Delivery experiment
 on:
   push:
     branches:
-      - main
+      - master
 
 jobs:
   delivery-experimental:
