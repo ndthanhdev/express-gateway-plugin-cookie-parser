@@ -1,0 +1,25 @@
+name: Delivery experiment
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  delivery-experimental:
+    name: Delivery experimental
+    needs: ci
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0 # yarn set version issue
+      - uses: actions/setup-node@v1
+      - run: yarn install
+      - shell: pwsh
+        env:
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: yarn config set npmAuthToken "$env:NPM_TOKEN"
+      - run: >
+          yarn version -i 0.0.0-exp-${{ github.sha }}
+      - run: yarn npm publish --tag experimental

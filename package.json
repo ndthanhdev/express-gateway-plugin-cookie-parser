@@ -1,0 +1,23 @@
+{
+  "name": "express-gateway-plugin-cookie-parser",
+  "version": "1.0.0",
+  "main": "manifest.js",
+  "repository": "git@github.com:ndthanhdev/express-gateway-plugin-cookie-parser.git",
+  "author": "ndthanhdev <ndthanhdev@outlook.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/node": "^14.11.8",
+    "@yarnpkg/pnpify": "^2.3.2"
+  },
+  "dependencies": {
+    "cookie-parser": "^1.4.5"
+  },
+  "file": [
+    "src/**",
+    "manifest.js"
+  ],
+  "keywords": [
+    "express-gateway",
+    "cookie-parser"
+  ]
+}
