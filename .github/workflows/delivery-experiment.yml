@@ -8,7 +8,6 @@ on:
 jobs:
   delivery-experimental:
     name: Delivery experimental
-    needs: ci
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
