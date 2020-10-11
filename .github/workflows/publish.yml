@@ -16,7 +16,6 @@ jobs:
         with:
           check-latest: true
       - run: yarn install
-      - run: yarn build
       - shell: pwsh
         env:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
