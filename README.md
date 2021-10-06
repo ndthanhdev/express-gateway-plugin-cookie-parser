@@ -7,4 +7,15 @@ Add express cookie-parser middleware to express-gateway
 plugins:
     express-gateway-plugin-cookie-parser:
         package: 'express-gateway-plugin-cookie-parser'
+```  
+
+```yaml
+# gateway.config.yml
+pipelines:
+  api:
+    policies:
+      - proxy:
+        - condition:
+            name: expression
+            expression: "req.cookies.username === 'admin'"
 ```

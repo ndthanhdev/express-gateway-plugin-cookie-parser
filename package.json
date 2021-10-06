@@ -2,7 +2,10 @@
   "name": "express-gateway-plugin-cookie-parser",
   "version": "1.0.0",
   "main": "manifest.js",
-  "repository": "git@github.com:ndthanhdev/express-gateway-plugin-cookie-parser.git",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ndthanhdev/express-gateway-plugin-cookie-parser.git"
+  },
   "author": "ndthanhdev <ndthanhdev@outlook.com>",
   "license": "MIT",
   "devDependencies": {
