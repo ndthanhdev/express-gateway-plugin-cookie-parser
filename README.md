@@ -30,6 +30,6 @@ plugins:
         package: 'express-gateway-plugin-cookie-parser'
         secret: 'my-secret'
         option:
-          - desc: 'An object that is passed to cookie.parse as the second option.'
-          - desc2: 'See https://www.npmjs.com/package/cookie for more information.'
+          desc1: 'An object that is passed to cookie.parse as the second option.'
+          desc2: 'See https://www.npmjs.com/package/cookie for more information.'
 ```
